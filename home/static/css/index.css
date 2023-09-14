@@ -1,0 +1,31 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.dropdown:active .dropdown-menu{ 
+    display: none;
+}
+
+.btn-primary{
+    border: 1px solid rgb(245,155,50);
+    border-radius: 25px;
+    background-color: rgb(245,155,50);
+}
+
+.btn-primary:hover{
+    background-color: whitesmoke;
+    color: rgb(245,155,50);
+    border: 1px solid rgb(245,155,50);
+}
+
+.dropdown-menu{
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    max-width: 150px;
+}
+
+body{
+    background-color: red;
+    font-family: Montserrat;
+}
