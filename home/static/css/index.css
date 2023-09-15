@@ -1,31 +1,71 @@
+body{
+    background-color: red;
+    font-family: Montserrat;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
 }
+
 .dropdown:active .dropdown-menu{ 
     display: none;
 }
 
 .btn-primary{
-    border: 1px solid rgb(245,155,50);
+    border: 1px solid #ff9320;
     border-radius: 25px;
-    background-color: rgb(245,155,50);
+    background-color: #ff9320;
 }
 
 .btn-primary:hover{
     background-color: whitesmoke;
-    color: rgb(245,155,50);
-    border: 1px solid rgb(245,155,50);
+    color: #ff9320;
+    border: 1px solid #ff9320;
 }
 
 .dropdown-menu{
     border: none;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
     border-radius: 0;
-    max-width: 150px;
+    width: 190px;
+    transition: all 0.5s ease-in-out;
 }
 
-body{
-    background-color: red;
-    font-family: Montserrat;
+.dropdown-item{
+    text-wrap: wrap;
+    padding: 13px 25px;
+    margin: 5px 0px;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.dropdown-item:hover{
+    background-color: white;
+    color: #ff9320;
+}
+
+form.nav{
+    position: absolute;
+    right: 0;
+}
+
+.nav-link{
+    font-weight: 400;
+}
+
+.dropdown .dropdown-menu{
+    display: block;
+    opacity: 0;
+
+    -moz-transition:    all 100ms ease-in-out;
+    -webkit-transition: all 100ms ease-in-out;
+    -o-transition:      all 100ms ease-in-out;
+    -ms-transition:     all 100ms ease-in-out;
+    transition:         all 100ms ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
 }
