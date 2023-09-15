@@ -1,11 +1,14 @@
 body{
-    background-color: red;
     font-family: Montserrat;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
+}
+
+.dropdown:hover{
+    color: #ff9320;
 }
 
 .dropdown:active .dropdown-menu{ 
@@ -19,7 +22,7 @@ body{
 }
 
 .btn-primary:hover{
-    background-color: whitesmoke;
+    background-color: white;
     color: #ff9320;
     border: 1px solid #ff9320;
 }
@@ -68,4 +71,8 @@ form.nav{
 .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
+}
+
+.navbar{
+    transition: all 100ms ease-in-out;
 }
