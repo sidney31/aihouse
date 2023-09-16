@@ -76,3 +76,11 @@ form.nav{
 .navbar{
     transition: all 100ms ease-in-out;
 }
+
+.fa{
+    transition-duration: 0.4s;
+}
+
+.fa-cont:hover .fa{
+    transform: translateY(-10px);
+}
