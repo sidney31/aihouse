@@ -29,7 +29,7 @@ body {
 
 .dropdown-menu {
     border: none;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
     border-radius: 0;
     width: 190px;
     transition: all 0.5s ease-in-out;
@@ -38,7 +38,7 @@ body {
 .dropdown-item {
     text-wrap: wrap;
     padding: 13px 25px;
-    margin: 5px 0px;
+    margin: 5px 0;
     font-weight: 300;
     font-size: 15px;
 }
@@ -102,7 +102,7 @@ form.nav {
 }
 
 .card:hover {
-    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .card-line {
@@ -115,4 +115,13 @@ form.nav {
 
 .card:hover .card-line {
     width: 100px;
+}
+
+.slider-cards {
+    border-radius: 0;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.slider-cards *{
+    border-radius: 0;
 }
