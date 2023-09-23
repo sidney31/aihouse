@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Montserrat;
 }
 
@@ -7,27 +7,27 @@ body{
     margin-top: 0;
 }
 
-.dropdown:hover{
+.dropdown:hover {
     color: #ff9320;
 }
 
-.dropdown:active .dropdown-menu{ 
+.dropdown:active .dropdown-menu {
     display: none;
 }
 
-.btn-primary{
+.btn-primary {
     border: 1px solid #ff9320;
     border-radius: 25px;
     background-color: #ff9320;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: white;
     color: #ff9320;
     border: 1px solid #ff9320;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     border: none;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
     border-radius: 0;
@@ -35,7 +35,7 @@ body{
     transition: all 0.5s ease-in-out;
 }
 
-.dropdown-item{
+.dropdown-item {
     text-wrap: wrap;
     padding: 13px 25px;
     margin: 5px 0px;
@@ -43,29 +43,29 @@ body{
     font-size: 15px;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: white;
     color: #ff9320;
 }
 
-form.nav{
+form.nav {
     position: absolute;
     right: 0;
 }
 
-.nav-link{
+.nav-link {
     font-weight: 400;
 }
 
-.dropdown .dropdown-menu{
+.dropdown .dropdown-menu {
     display: block;
     opacity: 0;
 
-    -moz-transition:    all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
     -webkit-transition: all 100ms ease-in-out;
-    -o-transition:      all 100ms ease-in-out;
-    -ms-transition:     all 100ms ease-in-out;
-    transition:         all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -73,14 +73,46 @@ form.nav{
     opacity: 1;
 }
 
-.navbar{
+.navbar {
     transition: all 100ms ease-in-out;
 }
 
-.fa{
+.fa {
     transition-duration: 0.4s;
 }
 
-.fa-cont:hover .fa{
+.fa-cont:hover .fa {
     transform: translateY(-10px);
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+.card {
+    border: none;
+    transition: 0.2s;
+    margin-bottom: 50px;
+}
+
+.card:hover {
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-line {
+    margin-top: 50px;
+    width: 70px;
+    height: 2px;
+    background-color: orange;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-line {
+    width: 100px;
 }
