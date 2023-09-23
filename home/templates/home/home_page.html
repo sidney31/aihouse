@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    <div class=" flex-column d-flex align-items-center" style="height: 900px; background-color: #f2f2f2">
+    <div class="flex-column d-flex align-items-center" style="height: 900px; background-color: #f2f2f2">
         <div class="container-md" style="margin-top: 125px">
             <div class="mx-auto text-center" style="width: 900px; margin: 0 40px;">
                 <p style="line-height: 1.2; font-size: 45px;">Раскрой свой дизайнерский потенциал</p>
@@ -158,19 +158,66 @@
                     уровня доступные всем</p>
             </div>
 
-            <div class="slider-cards mx-auto card mb-3" style="margin-top: 70px; width: max-content">
-                <div class="row g-0" style="width: 900px; height: 350px">
-                    <div class="col">
-                        <img src="./static/img/Solutions-For-Furniture-Brands..max-374x480.format-webp.webp"
-                             class="w-100 h-100" alt="...">
+            <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button class="active" type="button" data-bs-target="#carousel" data-bs-slide-to="0"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="slider-cards mx-auto card mb-3" style="margin-top: 70px; width: max-content">
+                            <div class="row g-0" style="width: 900px; height: 350px">
+                                <div class="col">
+                                    <img src="./static/img/Solutions-For-Furniture-Brands..max-374x480.format-webp.webp"
+                                         class="w-100 h-100" alt="...">
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <div class="card-body" style="padding: 40px">
+                                        <p class="card-title" style="font-size: 24px">Мебельным брендам</p>
+                                        <p class="card-text">Повышайте продажи с помощью свежих маркетинговых
+                                            визуализаций</p>
+                                        <p class="get-more-button">Узнать больше
+                                            <i class="fa-solid fa-right-long"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col d-flex align-items-center">
-                        <div class="card-body" style="padding: 40px">
-                            <p class="card-title" style="font-size: 24px">Мебельным брендам</p>
-                            <p class="card-text">Повышайте продажи с помощью свежих маркетинговых визуализаций</p>
+
+                    <div class="carousel-item active">
+                        <div class="slider-cards mx-auto card mb-3" style="margin-top: 70px; width: max-content">
+                            <div class="row g-0" style="width: 900px; height: 350px">
+                                <div class="col">
+                                    <img src="./static/img/Solutions-for-Designers.max-374.max-374x480.format-webp.webp"
+                                         class="w-100 h-100" alt="...">
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <div class="card-body" style="padding: 40px">
+                                        <p class="card-title" style="font-size: 24px">Дизайнерам интерьера</p>
+                                        <p class="card-text">Редактируйте детали проекта простыми движениями мыши.
+                                            Рендеринг всего за несколько минут</p>
+                                        <p class="get-more-button">Узнать больше
+                                            <i class="fa-solid fa-right-long"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                        data-bs-slide="prev">
+                    <i class="fa-solid fa-arrow-left text-black"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel"
+                        data-bs-slide="next">
+                    <i class="fa-solid fa-arrow-right text-black"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>

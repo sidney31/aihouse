@@ -122,6 +122,48 @@ form.nav {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
-.slider-cards *{
+.slider-cards * {
     border-radius: 0;
+}
+
+.carousel-indicators {
+    bottom: -50px
+}
+
+.carousel-indicators [data-bs-target] {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 7px;
+    background-color: #333333;
+}
+
+.carousel button {
+    width: 45px;
+    height: 35px;
+    background-color: white;
+    font-size: 22px;
+    top: 50%;
+}
+
+.carousel-control-prev {
+    left: 10%;
+}
+
+.carousel-control-next {
+    right: 10%;
+}
+
+.get-more-button {
+    position: relative;
+    top: 50px;
+    visibility: hidden;
+    color: rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+}
+
+.card-body:hover .get-more-button {
+    visibility: visible;
+    transform: translateY(-20px);
+    color: rgb(0, 0, 0);
 }
