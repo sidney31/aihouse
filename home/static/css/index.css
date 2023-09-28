@@ -207,3 +207,26 @@ form.nav {
 #carouselGallery:hover button {
     display: block;
 }
+
+.info > .row > .col-sm:first-child > a:before {
+    position: relative;
+    display: inline-block;
+    height: 28px;
+    width: 3px;
+    top: -3px;
+    margin-right: 18px;
+    vertical-align: middle;
+    background-color: #ff9320;;
+    content: "";
+}
+
+.info > .row > .col-sm-3:nth-of-type(2) {
+    padding: 20px 0 0 70px;
+}
+
+.info > .row > dl {
+    padding-top: 20px;
+    > dd {
+        margin-bottom: 20px;
+    }
+}
