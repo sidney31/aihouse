@@ -146,13 +146,6 @@ form.nav {
     top: 50%;
 }
 
-.carousel-control-prev {
-    left: 10%;
-}
-
-.carousel-control-next {
-    right: 10%;
-}
 
 .get-more-button {
     position: relative;
@@ -166,4 +159,33 @@ form.nav {
     visibility: visible;
     transform: translateY(-20px);
     color: rgb(0, 0, 0);
+}
+
+#carouselGallery {
+    margin-top: 250px;
+    margin-bottom: 150px;
+}
+
+.gallery-carousel-inner .carousel-item.active,
+.gallery-carousel-inner .carousel-item-next,
+.gallery-carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+
+@media (min-width: 768px) {
+    .gallery-carousel-inner .carousel-item-end.active,
+    .gallery-carousel-inner .carousel-item-next {
+        transform: translateX(calc(100vw / 3));
+    }
+
+    .gallery-carousel-inner .carousel-item-start.active,
+    .gallery-carousel-inner .carousel-item-prev {
+        transform: translateX(calc(100vw / -3));
+    }
+
+    .gallery-carousel-inner .carousel-item-end,
+    .gallery-carousel-inner .carousel-item-start {
+        transform: translateX(0);
+    }
 }
