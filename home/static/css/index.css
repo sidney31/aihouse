@@ -146,7 +146,6 @@ form.nav {
     top: 50%;
 }
 
-
 .get-more-button {
     position: relative;
     top: 50px;
@@ -188,4 +187,23 @@ form.nav {
     .gallery-carousel-inner .carousel-item-start {
         transform: translateX(0);
     }
+}
+
+
+#carouselGallery > button {
+    height: 45px;
+    width: 50px;
+    color: rgba(0, 0, 0, 0.34);
+    opacity: 100;
+    display: none;
+    transition: all 0.1s ease;
+}
+
+#carouselGallery > button:hover {
+    color: #252525;
+    background-color: #e5e5e5;
+}
+
+#carouselGallery:hover button {
+    display: block;
 }
