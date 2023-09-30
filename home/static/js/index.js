@@ -1,15 +1,16 @@
 //header animate
-var navbar = document.querySelector(".navbar");
+var scrollPosition = 0;
+window.addEventListener('scroll', function () {
+    let navbar = document.querySelector(".navbar");
 
-if (navbar) {
-    window.onwheel = e => {
-        if (e.deltaY > 0)
-            navbar.style.transform = "translateY(-100px)";
-        else
-            navbar.style.transform = "translateY(0)";
-
+    if (window.scrollY > scrollPosition) {
+        navbar.style.transform = "translateY(-100px)";
+    } else {
+        navbar.style.transform = "translateY(0)";
     }
-}
+    scrollPosition = window.scrollY;
+});
+
 
 //gallery carousel
 var items = document.querySelectorAll(".gallery-carousel-inner .carousel-item");
