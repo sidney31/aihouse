@@ -269,8 +269,9 @@ form.nav {
 }
 
 .parallax {
-    height: 600px;
+    height: 550px;
     background-attachment: fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -301,8 +302,76 @@ form.nav {
     height: 55px;
     width: 200px;
     color: white;
+    transition: all 0.2s ease;
 }
 
-footer{
+.callback:hover {
+    background-color: #ff9320;
+}
 
+footer {
+    background: #333333;
+    height: 630px;
+    margin: 0 20px 20px 20px;
+}
+
+footer dl {
+    > dd:nth-child(1) {
+        color: #fff;
+        padding-bottom: 20px;
+    }
+
+    > dd {
+        color: #a3a4a8;
+
+        > a {
+            text-decoration: none;
+            color: white;
+        }
+
+        > a:hover {
+            color: gray;
+        }
+    }
+}
+
+.copyright > .row {
+    border-top: 1px solid #646464;
+}
+
+.copyright > .row > * > a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.to-top {
+    width: 40px;
+    height: 40px;
+    background-color: #ff9320;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > a {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+muted {
+    color: #a3a4a8;
+}
+
+.logotype {
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 150px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
