@@ -1,6 +1,6 @@
 //header animate
 var scrollPosition = 0;
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', () => {
     let navbar = document.querySelector(".navbar");
 
     if (window.scrollY > scrollPosition) {
@@ -26,3 +26,65 @@ items.forEach((e) => {
         next = next.nextElementSibling;
     }
 })
+
+//animation appearance
+var animatedItems = document.querySelectorAll(".appear-right, .appear-left, .appear-center")
+var stateItems = new Map(); // <element: e, bool: visited>
+animatedItems.forEach((e) => {
+    stateItems.set(e, false);
+})
+
+
+window.addEventListener('scroll', () => {
+    scrollTracking();
+})
+
+window.addEventListener('load', () => {
+    scrollTracking();
+})
+
+function scrollTracking() {
+    var wt = window.scrollY;
+    var wh = window.innerHeight;
+
+    for (let [item, visited] of stateItems) {
+        if (!visited && wt + wh >= item.getBoundingClientRect().top) {
+            animateItem(item);
+            stateItems.set(item, true)
+        }
+    }
+}
+
+function animateItem(item) {
+    if (item.classList.contains("appear-center")) {
+        item.animate(
+            [
+                {opacity: 0},
+                {opacity: 1},
+            ],
+            {
+                duration: 2000
+            }
+        );
+    } else if (item.classList.contains("appear-right")) {
+        item.animate(
+            [
+                {transform: "translateX(-100px)"},
+                {transform: "translateX(0px)"},
+            ],
+            {
+                duration: 300
+            }
+        );
+    } else if (item.classList.contains("appear-left")) {
+        item.animate(
+            [
+                {transform: "translateX(100px)"},
+                {transform: "translateX(0px)"},
+            ],
+            {
+                duration: 300
+            }
+        );
+    }
+}
