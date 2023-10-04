@@ -1,46 +1,146 @@
-{% load static wagtailcore_tags wagtailuserbar %}
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        {% if page.search_description %}
-        <meta name="description" content="{{ page.search_description }}" />
-        {% endif %}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {# Force all links in the live preview panel to be opened in a new tab #}
-        {% if request.in_preview_panel %}
-        <base target="_blank">
-        {% endif %}
-
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/aihouse.css' %}">
-
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            {% if self.seo_title %}
+                {{ self.seo_title }}
+            {% else %}
+                {{ self.title }}
+            {% endif %}
         {% endblock %}
-    </head>
-
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
-
-        {% block content %}{% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/aihouse.js' %}"></script>
-
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+    </title>
+    <meta name="description" content="{{self.search_description}}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="height: 100px;">
+        <div class="container-fluid justify-content-space-between" style="margin: 0 50px">
+            <a class="navbar-brand" href="#">
+                <div class="logotype"
+                     style="background-position: center; background-image: url('./static/img/AiHouse-light.png')"></div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav position-absolute top-50 start-50 translate-middle gap-3">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Функционал
+                        </a>
+                        <ul class="dropdown-menu fade-down" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Создание видео</a></li>
+                            <li><a class="dropdown-item" href="#">Дизайн и визуализация</a></li>
+                            <li><a class="dropdown-item" href="#">Галерея брендов</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tariffs/">Тарифы</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Решения
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Мебельным брендам</a></li>
+                            <li>
+                                <hr class="dropdown-divider w-75 mx-auto">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Дизайнерам интерьера</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Поддержка
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Частые вопросы</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="nav me-5">
+                    <li class="nav-item">
+                        <a class="nav-link link-dark fw-light" href="#">Вход</a>
+                    </li>
+                    <button class="btn btn-primary px-4" type="button">Регистрация</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<section style="margin: 0 20px">
+    {% block content %}{% endblock %}
+</section>
+<footer>
+    <div class="container">
+        <div class="row" style="padding: 140px">
+            <div class="col-md-4">
+                <div class="logotype" style="background-image: url('./static/img/AiHouse-dark.png')"></div>
+            </div>
+            <div class="col row">
+                <div class="col">
+                    <dl>
+                        <dd>Возможности</dd>
+                        <dd>Дизайн и визуализация</dd>
+                        <dd>Производство видеоматериалов</dd>
+                        <dd>Галерея брендов</dd>
+                    </dl>
+                </div>
+                <div class="col">
+                    <dl>
+                        <dd>Компания</dd>
+                        <dd>Контакты</dd>
+                        <dd>Реквизиты</dd>
+                        <dd>Публичная оферта</dd>
+                    </dl>
+                </div>
+                <div class="col">
+                    <dl>
+                        <dd>Контакты</dd>
+                        <dd>ООО «АСАИ СОФТ»</dd>
+                        <dd>
+                            <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>
+                        </dd>
+                        <dd>
+                            <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>
+                        </dd>
+                        <dd style="font-size: 13px">105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="copyright" style="padding: 40px 140px">
+            <div class="row" style="padding-top: 40px">
+                <div class="col-md-4">
+                    <a href="">Публичная оферта</a>
+                </div>
+                <div class="col" style="font-size: 13px;">
+                    <a href="">
+                        <muted>© 2023 -</muted>
+                        Сделано в Asai Soft
+                        <muted>| Все права защищены</muted>
+                    </a>
+                </div>
+                <div class="to-top col-md-1">
+                    <a href="#" class="fa-solid fa-arrow-up"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="../static/js/index.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/d22fe735f3.js" crossorigin="anonymous"></script>
+</body>
 </html>
