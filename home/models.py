@@ -7,7 +7,7 @@ from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
-from .blocks import TitleButtonBlock
+from .blocks import TitleButtonBlock, FunctionalDescBlock
 
 
 class HomePage(Page):
@@ -37,10 +37,24 @@ class HomePage(Page):
         default='',
         use_json_field=True)
 
+    functional_description = StreamField([
+        ("left_block_functional_description", FunctionalDescBlock(
+            label="Правый блок",
+        )),
+        ("right_block_functional_description", FunctionalDescBlock(
+            label="Левый блок",
+        )),
+    ],
+        null=False,
+        blank=False,
+        default='',
+        use_json_field=True)
+
     ###########################################################################
 
     content_panels = Page.content_panels + [
         FieldPanel('big_title'),
         FieldPanel('small_title'),
         FieldPanel('title_buttons'),
+        FieldPanel('functional_description'),
     ]
