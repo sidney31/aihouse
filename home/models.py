@@ -7,52 +7,40 @@ from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
-from .blocks import FigCaptionBlock
+from .blocks import TitleButtonBlock
+
 
 class HomePage(Page):
-    subtitle = models.CharField(
+    big_title = models.CharField(
         max_length=100,
-        blank=True,
-        null=True
+        blank=False,
+        null=False,
+        default="Создавайте превосходные визуализации с легкостью",
     )
 
-    rtrbody = RichTextField(
-        blank=True,
-        null=True
+    small_title = models.CharField(
+        max_length=100,
+        blank=False,
+        null=False,
+        default="Широкие возможности настройки | Простота в работе | Потрясающие 4K рендеры",
     )
 
-    bg_image = models.ForeignKey(
-        'wagtailimages.Image',
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-    )
+    title_buttons = StreamField([
+        ("title_button", TitleButtonBlock(
+            features=[],
+            label="Кнопка под верхним блоком",
+        )),
 
-    body = StreamField([
-        ('figcaptionblock', FigCaptionBlock()),
-        ('rtfblock', blocks.RichTextBlock(label='Текст', 
-                                          help_text='Описание',
-                                          features={'h1', 'bold', 'link', 'code'})),
-        ('image', ImageChooserBlock(label='Фото', 
-                                    help_text='Изображение',
-                                    template='blocks/imgblock.html')),
-        ('youtubeblock', EmbedBlock(label='Видео', 
-                                    help_text='Ютуб',
-                                    icon='success')),
     ],
-    block_counts={
-        'rtfblock': {'min_num': 1},
-        'image': {'max_num': 3},
-    },
-    use_json_field=True,
-    blank=True)
+        null=False,
+        blank=False,
+        default='',
+        use_json_field=True)
 
-###########################################################################
+    ###########################################################################
 
     content_panels = Page.content_panels + [
-        FieldPanel('subtitle'),
-        FieldPanel('rtrbody'),
-        FieldPanel('bg_image'),
-        FieldPanel('body'),
+        FieldPanel('big_title'),
+        FieldPanel('small_title'),
+        FieldPanel('title_buttons'),
     ]

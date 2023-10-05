@@ -5,27 +5,32 @@
     <img src="../static/img/image.jpg" class="position-relative image-fluid w-100" alt="..."
          style="filter: brightness(40%); height: 710px;  object-fit: cover;">
     <div class="container-lg d-flex flex-column justify-content-center text-center card-img-overlay" style="margin: 200px auto">
-        <p class="fw-bold appear-center" style="font-size: 65px; line-height: 1.1">Создавайте превосходные визуализации с
-            легкостью</p>
-        <p class="fw-light appear-center">Широкие возможности настройки | Простота в работе | Потрясающие 4K
-            рендеры</p>
+        <p class="fw-bold appear-center" style="font-size: 65px; line-height: 1.1">
+            {{ self.big_title }}
+        </p>
+        <p class="fw-light appear-center">
+            {{ self.small_title }}
+        </p>
     </div>
     <div class="row text-center align-items-center justify-content-center gap-5" style="height:170px">
-        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">
-            <i class="fa fa-video fs-1" aria-hidden="true"></i>
-            <br>
-            Создание видео
-        </div>
-        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">
-            <i class="fa fa-crop-simple fs-1" aria-hidden="true"></i>
-            <br>
-            Дизайн и визуализация
-        </div>
-        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">
-            <i class="fa fa-tags fs-1" aria-hidden="true"></i>
-            <br>
-            Галерея брендов
-        </div>
+        {% for title_button in self.title_buttons  %}
+            {{ title_button }}
+        {% endfor %}
+{#        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">#}
+{#            <i class="fa fa-video fs-1" aria-hidden="true"></i>#}
+{#            <br>#}
+{#            Создание видео#}
+{#        </div>#}
+{#        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">#}
+{#            <i class="fa fa-crop-simple fs-1" aria-hidden="true"></i>#}
+{#            <br>#}
+{#            Дизайн и визуализация#}
+{#        </div>#}
+{#        <div class="col-1 fa-cont fs-5 d-flex justify-content-between flex-column" style="width: 180px">#}
+{#            <i class="fa fa-tags fs-1" aria-hidden="true"></i>#}
+{#            <br>#}
+{#            Галерея брендов#}
+{#        </div>#}
     </div>
 </div>
 
