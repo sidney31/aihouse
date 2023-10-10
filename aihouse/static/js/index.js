@@ -11,6 +11,10 @@ window.addEventListener('scroll', () => {
     scrollPosition = window.scrollY;
 });
 
+//cards carousel
+
+var card = document.querySelector(".card-carousel > .carousel-item")
+card.classList.add("active")
 
 //gallery carousel
 var items = document.querySelectorAll(".gallery-carousel-inner .carousel-item");
