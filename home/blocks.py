@@ -1,4 +1,5 @@
 from wagtail.blocks import CharBlock, StructBlock
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class TitleButtonBlock(StructBlock):
@@ -6,7 +7,6 @@ class TitleButtonBlock(StructBlock):
     title = CharBlock()
 
     class Meta:
-        icon = 'image'
         template = 'blocks/title_button_block.html'
 
 
@@ -15,5 +15,19 @@ class FunctionalDescBlock(StructBlock):
     description = CharBlock()
 
     class Meta:
-        icon = 'image'
         template = 'blocks/functional_desc_block.html'
+
+
+class CardCarouselBlock(StructBlock):
+    image = ImageChooserBlock()
+    title = CharBlock()
+    description = CharBlock()
+    hint = CharBlock()
+
+    class Meta:
+        template = 'blocks/card_carousel_block.html'
+
+
+class TitleAndSubtitle(StructBlock):
+    title = CharBlock()
+    subtitle = CharBlock()

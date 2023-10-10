@@ -3,31 +3,28 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel
-from wagtail import blocks
-from wagtail.images.blocks import ImageChooserBlock
-from wagtail.embeds.blocks import EmbedBlock
 
-from .blocks import TitleButtonBlock, FunctionalDescBlock
+from .blocks import TitleButtonBlock, FunctionalDescBlock, CharBlock, CardCarouselBlock, TitleAndSubtitle
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail import blocks
 
 
 class HomePage(Page):
-    big_title = models.CharField(
-        max_length=100,
-        blank=False,
+    subHeader = StreamField([
+        ("header", TitleAndSubtitle(
+            label='Заголовок'
+        )),
+    ],
+        block_counts={
+            'header': {'min_num': 1, 'max_num': 1},
+        },
         null=False,
-        default="Создавайте превосходные визуализации с легкостью",
-    )
-
-    small_title = models.CharField(
-        max_length=100,
         blank=False,
-        null=False,
-        default="Широкие возможности настройки | Простота в работе | Потрясающие 4K рендеры",
-    )
+        default='',
+        use_json_field=True)
 
     title_buttons = StreamField([
         ("title_button", TitleButtonBlock(
-            features=[],
             label="Кнопка под верхним блоком",
         )),
 
@@ -38,11 +35,31 @@ class HomePage(Page):
         use_json_field=True)
 
     functional_description = StreamField([
-        ("left_block_functional_description", FunctionalDescBlock(
+        ("left_block", FunctionalDescBlock(
             label="Правый блок",
         )),
-        ("right_block_functional_description", FunctionalDescBlock(
+        ("right_block", FunctionalDescBlock(
             label="Левый блок",
+        )),
+        ('image', ImageChooserBlock()),
+    ],
+        block_counts={
+            'left_block': {'min_num': 2},
+            'right_block': {'min_num': 2},
+            'image': {'mix_num': 1, 'max_num': 1},
+        },
+
+        null=False,
+        blank=False,
+        default='',
+        use_json_field=True)
+
+    card_carousel = StreamField([
+        ("header", TitleAndSubtitle(
+            label='Заголовок'
+        )),
+        ("card", CardCarouselBlock(
+            label='Карточка'
         )),
     ],
         null=False,
@@ -53,8 +70,9 @@ class HomePage(Page):
     ###########################################################################
 
     content_panels = Page.content_panels + [
-        FieldPanel('big_title'),
-        FieldPanel('small_title'),
+        FieldPanel('subHeader'),
         FieldPanel('title_buttons'),
         FieldPanel('functional_description'),
+        FieldPanel('card_carousel'),
     ]
+
