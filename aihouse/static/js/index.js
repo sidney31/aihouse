@@ -13,8 +13,24 @@ window.addEventListener('scroll', () => {
 
 //cards carousel
 
-var card = document.querySelector(".card-carousel > .carousel-item")
-card.classList.add("active")
+var cards = document.querySelectorAll(".card-carousel > .carousel-item")
+cards[0].classList.add("active")
+
+var carouselIndicators = document.querySelector("#carousel > .carousel-indicators")
+cards.forEach((el, i) => {
+    carouselIndicators.innerHTML +=
+        `<button type="button" data-bs-target="#carousel" data-bs-slide-to="${i}"
+        aria-current="true" aria-label="Slide ${i+1}"></button>`
+})
+
+carouselIndicators.childNodes.forEach((v, k) => {
+    if (k === 1)
+        v.classList.add("active")
+
+    v.ariaLabel = "Slide "+k+1
+    v.databsslide = k+1
+})
+
 
 //gallery carousel
 var items = document.querySelectorAll(".gallery-carousel-inner .carousel-item");

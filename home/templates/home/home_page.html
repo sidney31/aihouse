@@ -36,10 +36,12 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="col appear-center" style="margin-top:70px">
+            <div class="col appear-center">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'image' %}
-                        {{ block }}
+                        <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                            {{ block }}
+                        </div>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -71,12 +73,7 @@
         </div>
 
         <div id="carousel" class="carousel slide">
-            <div class="carousel-indicators">
-                <button class="active" type="button" data-bs-target="#carousel" data-bs-slide-to="0"
-                        aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-            </div>
+            <div class="carousel-indicators"></div>
             <div class="carousel-inner card-carousel">
                 {% for block in self.card_carousel %}
                     {% if block.block_type == "card" %}
@@ -128,7 +125,7 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev .bg-white" type="button" data-bs-target="#carouselGallery"
+                <button class="carousel-control-prev .bg-white" type="button" data-bs-target="#carouselGallery"
                     data-bs-slide="prev">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span class="visually-hidden">Предыдущий</span>
@@ -179,20 +176,3 @@
         <div class="mask"></div>
     </div>
 {% endblock %}
-
-{% comment %} <!-- load wagtailcore_tags by adding this: -->
-{% load static wagtailcore_tags wagtailimages_tags%}
-
-{% block body_class %}template-homepage{% endblock %}
-{% block content%}
-    <h1>{{ page.title }}</h1>
-    <h2>{{ page.subtitle }}</h2>
-
-    {%image page.bg_image fill-50x50-c100 as BGIMAGE%}
-
-    <a href="{{BGIMAGE.url}}">ссылка на картинку</a>
-
-    <div>
-        {%include_block page.body%}
-    </div>
-{% endblock %} {% endcomment %}
