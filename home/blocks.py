@@ -1,5 +1,6 @@
-from wagtail.blocks import CharBlock, StructBlock
+from wagtail.blocks import CharBlock, StructBlock, RichTextBlock, ChoiceBlock
 from wagtail.images.blocks import ImageChooserBlock
+from aihouse.settings.base import ALL_RICHTEXT_FEATURES
 
 
 class TitleButtonBlock(StructBlock):
@@ -31,3 +32,13 @@ class CardCarouselBlock(StructBlock):
 class TitleAndSubtitle(StructBlock):
     title = CharBlock()
     subtitle = CharBlock()
+
+
+class Column(StructBlock):
+    text = RichTextBlock(
+        features=ALL_RICHTEXT_FEATURES
+    )
+    size = ChoiceBlock(choices=[
+        ('col', 'Большой'),
+        ('col-sm-2', 'Средний'),
+        ('col-sm-4', 'Маленький')])

@@ -4,7 +4,7 @@ from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel
 
-from .blocks import TitleButtonBlock, FunctionalDescBlock, CharBlock, CardCarouselBlock, TitleAndSubtitle
+from .blocks import TitleButtonBlock, FunctionalDescBlock, Column, CardCarouselBlock, TitleAndSubtitle
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 
@@ -67,6 +67,16 @@ class HomePage(Page):
         default='',
         use_json_field=True)
 
+    contacts = StreamField([
+        ("columnText", Column(
+            label="Столбец"
+        )),
+    ],
+        null=False,
+        blank=False,
+        default='',
+        use_json_field=True)
+
     ###########################################################################
 
     content_panels = Page.content_panels + [
@@ -74,5 +84,5 @@ class HomePage(Page):
         FieldPanel('title_buttons'),
         FieldPanel('functional_description'),
         FieldPanel('card_carousel'),
+        FieldPanel('contacts'),
     ]
-
