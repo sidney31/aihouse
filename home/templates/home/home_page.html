@@ -57,39 +57,40 @@
         </div>
     </div>
 
-    <div class="flex-column d-flex align-items-center" style="background-color: #f2f2f2">
-    <div class="container-md" style="margin-top: 125px">
-        <div class="mx-auto text-center" style="width: 900px; margin: 0 40px;">
-            {% for block in self.card_carousel %}
-                {% if block.block_type == "header" %}
-                    <p style="line-height: 1.2; font-size: 45px;">
-                        {{ block.value.title }}
-                    </p>
-                    <p class="fs-5" style="margin-top: 20px; padding: 0 150px">
-                        {{ block.value.subtitle }}
-                    </p>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        <div id="carousel" class="carousel slide">
-            <div class="carousel-indicators"></div>
-            <div class="carousel-inner card-carousel">
+    <div class="flex-column d-flex align-items-center" style="height: 920px; background-color: #f2f2f2">
+        <div class="container-md" style="margin-top: 120px">
+            <div class="mx-auto text-center" style="width: 900px; margin: 0 40px;">
                 {% for block in self.card_carousel %}
-                    {% if block.block_type == "card" %}
-                        {{ block }}
+                    {% if block.block_type == "header" %}
+                        <p style="line-height: 1.2; font-size: 45px;">
+                            {{ block.value.title }}
+                        </p>
+                        <p class="fs-5" style="margin-top: 20px; padding: 0 150px">
+                            {{ block.value.subtitle }}
+                        </p>
                     {% endif %}
                 {% endfor %}
-                <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
-                        data-bs-slide="prev">
-                    <i class="fa-solid fa-arrow-left text-black"></i>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel"
-                        data-bs-slide="next">
-                    <i class="fa-solid fa-arrow-right text-black"></i>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            </div>
+
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner card-carousel">
+                    {% for block in self.card_carousel %}
+                        {% if block.block_type == "card" %}
+                            {{ block }}
+                        {% endif %}
+                    {% endfor %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                            data-bs-slide="prev">
+                        <i class="fa-solid fa-arrow-left text-black"></i>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel"
+                            data-bs-slide="next">
+                        <i class="fa-solid fa-arrow-right text-black"></i>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -125,7 +126,7 @@
                     </div>
                 </div>
             </div>
-                <button class="carousel-control-prev .bg-white" type="button" data-bs-target="#carouselGallery"
+            <button class="carousel-control-prev .bg-white" type="button" data-bs-target="#carouselGallery"
                     data-bs-slide="prev">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span class="visually-hidden">Предыдущий</span>

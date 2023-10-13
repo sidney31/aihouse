@@ -352,8 +352,9 @@ footer dl {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 
-    > a {
+    > div {
         color: white;
         text-decoration: none;
     }
