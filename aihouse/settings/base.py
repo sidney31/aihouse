@@ -160,7 +160,7 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 RICHTEXT_BLOCKTYPES = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol']
-RICHTEXT_INLINE = ['bold', 'italic', 'smaller', 'larger']
+RICHTEXT_INLINE = ['bold', 'italic']
 RICHTEXT_ENTITIES = ['image', 'embed', 'link', 'document-link']
 RICHTEXT_MISC = ['hr']
 

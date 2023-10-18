@@ -99,10 +99,20 @@ form.nav {
     border: none;
     transition: 0.2s;
     margin-bottom: 50px;
+    width: auto;
+}
+
+.card-body {
+    padding: 0 !important;
 }
 
 .card:hover {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-content-wrapper {
+    padding: 20px;
+    width: 300px;
 }
 
 .card-line {
@@ -375,4 +385,32 @@ muted {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 1400px) {
+    .benefit-image img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .benefit-image {
+        order: -1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .benefit-image img {
+        max-width: none;
+        width: auto;
+    }
+
+}
+
+@media (max-width: 720px) {
+    .benefit-image img {
+        max-width: 400px;
+        width: auto;
+    }
 }

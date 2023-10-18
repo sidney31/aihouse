@@ -27,7 +27,7 @@
 
     <div class="container-lg" style="margin: 140px auto">
         <div class="row">
-            <div class="col">
+            <div class="col mx-auto p-0">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'left_block' %}
                         <div class="row m-0 appear-right">
@@ -36,7 +36,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="col appear-center">
+            <div class="benefit-image col appear-center mx-auto p-0">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'image' %}
                         <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -45,7 +45,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="col">
+            <div class="col mx-auto p-0">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'right_block' %}
                         <div class="row m-0 appear-left">
@@ -140,40 +140,35 @@
     </div>
     <div class="info container-lg">
         <div class="row">
-            {% for column in self.contacts %}
-                <div class="{{ column.value.size }}">
-                    {{ column.value.text }}
+            <div class="col-sm-4" style="height: 100px; font-size: 28px">
+                <a>Контакты</a>
+            </div>
+            <div class="col-sm-2">
+                <a>Офис и учебный центр</a>
+            </div>
+            <dl class="col">
+                <div class="vertical-line">
+                    <dd>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Адрес:
+                    </dd>
+                    <dd>105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>
+                    <dd>
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        Контактный телефон:
+                    </dd>
+                    <dd>
+                        <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>
+                    </dd>
+                    <dd>
+                        <i class="fa-regular fa-envelope"></i>
+                        Электронная почта:
+                    </dd>
+                    <dd>
+                        <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>
+                    </dd>
                 </div>
-            {% endfor %}
-{#            <div class="col-sm-4" style="height: 100px; font-size: 28px">#}
-{#                <a>Контакты</a>#}
-{#            </div>#}
-{#            <div class="col-sm-2">#}
-{#                <a>Офис и учебный центр</a>#}
-{#            </div>#}
-{#            <dl class="col">#}
-{#                <div class="vertical-line">#}
-{#                    <dd>#}
-{#                        <i class="fa-solid fa-location-dot"></i>#}
-{#                        Адрес:#}
-{#                    </dd>#}
-{#                    <dd>105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>#}
-{#                    <dd>#}
-{#                        <i class="fa-solid fa-mobile-screen-button"></i>#}
-{#                        Контактный телефон:#}
-{#                    </dd>#}
-{#                    <dd>#}
-{#                        <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>#}
-{#                    </dd>#}
-{#                    <dd>#}
-{#                        <i class="fa-regular fa-envelope"></i>#}
-{#                        Электронная почта:#}
-{#                    </dd>#}
-{#                    <dd>#}
-{#                        <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>#}
-{#                    </dd>#}
-{#                </div>#}
-{#            </dl>#}
+            </dl>
         </div>
     </div>
     <div class="container-fluid parallax" style="background-image: url('./static/img/dark-interior.jpg');">

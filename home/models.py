@@ -68,9 +68,7 @@ class HomePage(Page):
         use_json_field=True)
 
     contacts = StreamField([
-        ("columnText", Column(
-            label="Столбец"
-        )),
+
     ],
         null=False,
         blank=False,

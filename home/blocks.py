@@ -36,9 +36,5 @@ class TitleAndSubtitle(StructBlock):
 
 class Column(StructBlock):
     text = RichTextBlock(
-        features=ALL_RICHTEXT_FEATURES
+        features=['small', 'medium', 'large']
     )
-    size = ChoiceBlock(choices=[
-        ('col', 'Большой'),
-        ('col-sm-2', 'Средний'),
-        ('col-sm-4', 'Маленький')])
