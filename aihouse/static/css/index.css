@@ -513,7 +513,7 @@ muted {
         pos
     }
 
-    .card-body {
+    #carousel .card-body {
         padding: 20px !important;
         margin: 0 !important;
         height: 170px;
