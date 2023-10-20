@@ -1,5 +1,10 @@
 body {
     font-family: Montserrat;
+    margin: 20px;
+}
+
+body * {
+    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -74,11 +79,22 @@ form.nav {
 }
 
 .navbar {
+    height: 100px;
+    width: 100vw;
     transition: all 100ms ease-in-out;
+}
+
+.navbar-brand {
+    margin-left: 40px;
 }
 
 .fa {
     transition-duration: 0.4s;
+}
+
+.fa-cont {
+    width: 180px;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .fa-cont:hover .fa {
@@ -104,6 +120,8 @@ form.nav {
 
 .card-body {
     padding: 0 !important;
+    height: auto;
+    overflow-y: visible;
 }
 
 .card:hover {
@@ -132,20 +150,25 @@ form.nav {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
+.slider-cards > .row {
+    width: auto;
+}
+
 .slider-cards * {
     border-radius: 0;
 }
 
-.carousel-indicators {
-    bottom: -50px
-}
-
 .carousel-indicators [data-bs-target] {
+    position: relative;
     border-radius: 50%;
     width: 12px;
     height: 12px;
     margin: 0 7px;
     background-color: #333333;
+}
+
+.carousel-indicators {
+    margin: 0;
 }
 
 .carousel button {
@@ -156,15 +179,15 @@ form.nav {
     top: 50%;
 }
 
-.get-more-button {
-    position: relative;
-    top: 50px;
+.bth-hint {
+    position: absolute;
+    bottom: 0;
     visibility: hidden;
     color: rgba(0, 0, 0, 0);
     transition-duration: 0.3s;
 }
 
-.card-body:hover .get-more-button {
+.card-body:hover .bth-hint {
     visibility: visible;
     transform: translateY(-20px);
     color: rgb(0, 0, 0);
@@ -218,10 +241,18 @@ form.nav {
     display: block;
 }
 
-.info > .row {
-    padding-bottom: 70px;
+footer .container-fluid {
+    padding: 140px 0;
+}
 
-    > .col-sm:first-child > a:before {
+footer .container-fluid .row {
+    margin: 0 40px
+}
+
+.info > .row {
+    margin-bottom: 70px;
+
+    > :first-child > a:before {
         position: relative;
         display: inline-block;
         height: 28px;
@@ -232,50 +263,37 @@ form.nav {
         background-color: #ff9320;
         content: "";
     }
+}
 
-    > .col-sm-2 {
-        padding-top: 20px;
-        height: 100px;
-        font-size: 22px
+.vertical-line {
+    position: relative;
+
+    > dd:nth-child(odd) {
+        margin-bottom: 20px;
     }
 
-    > dl {
-        padding-top: 20px;
-        padding-left: 80px;
-        font-size: 16px;
-
-        .vertical-line {
-            padding-left: 80px;
-            position: relative;
-
-            > dd:nth-child(odd) {
-                margin-bottom: 20px;
-            }
-
-            > dd {
-                margin-bottom: 10px;
-            }
-
-            > dd > a {
-                text-decoration: none;
-                color: #ff9320;
-                transition: all 0.2s ease;
-            }
-
-            > dd > a:hover {
-                color: initial;
-            }
-        }
-
-        .vertical-line:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            border-left: 1px solid #e5e5e7;
-            left: 40px;
-        }
+    > dd {
+        margin-bottom: 10px;
     }
+
+    > dd > a {
+        text-decoration: none;
+        color: #ff9320;
+        transition: all 0.2s ease;
+    }
+
+    > dd > a:hover {
+        color: initial;
+    }
+}
+
+.vertical-line:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #e5e5e7;
+    left: 0;
 }
 
 .parallax {
@@ -321,8 +339,6 @@ form.nav {
 
 footer {
     background: #333333;
-    height: 630px;
-    margin: 0 20px 20px 20px;
 }
 
 footer dl {
@@ -345,11 +361,12 @@ footer dl {
     }
 }
 
-.copyright > .row {
-    border-top: 1px solid #646464;
+.copyright {
+    border-top: rgb(128, 128, 128) 1px solid;
+    padding: 40px;
 }
 
-.copyright > .row > * > a {
+.copyright a {
     text-decoration: none;
     color: white;
 }
@@ -387,30 +404,138 @@ muted {
     justify-content: center;
 }
 
-@media (max-width: 1400px) {
+.fs-1 {
+    font-size: 65px !important;
+    line-height: 1.1 !important;
+}
+
+.fs-2 {
+    font-size: 45px !important;
+}
+
+.fs-3 {
+    font-size: 25px !important;
+}
+
+.fs-4 {
+    font-size: 20px !important;
+}
+
+.fs-5 {
+    font-size: 14px !important;
+}
+
+.py-5 {
+    padding: 140px 0 !important;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.carousel * {
+    transition-duration: 300ms;
+}
+
+@media (max-width: 1440px) {
     .benefit-image img {
         height: auto;
         max-width: 100%;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .benefit-image {
         order: -1;
         display: flex;
         justify-content: center;
+        overflow-x: visible;
+        flex: 0 0 auto;
     }
 
     .benefit-image img {
-        max-width: none;
+        max-width: 1350px;
         width: auto;
     }
 
+    .fs-1 {
+        font-size: 55px !important;
+    }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .benefit-image img {
-        max-width: 400px;
+        max-width: 450px;
         width: auto;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        visibility: hidden;
+    }
+
+    .navbar-brand {
+        margin-left: 0;
+    }
+
+    .fs-1 {
+        font-size: 46px !important;
+    }
+
+    .fs-2 {
+        font-size: 36px !important;
+    }
+
+    .fs-4 {
+        font-size: 20px !important;
+    }
+
+    .py-5 {
+        padding: 70px 0 !important;
+    }
+
+    .vertical-line {
+        padding-left: 0;
+    }
+
+    footer {
+        overflow-x: clip;
+    }
+}
+
+@media (max-width: 639px) {
+    .bth-hint {
+        visibility: visible;
+        pos
+    }
+
+    .card-body {
+        padding: 20px !important;
+        margin: 0 !important;
+        height: 170px;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .benefit-image img {
+        max-width: 320px;
+        width: auto;
+    }
+
+    .fs-2 {
+        font-size: 36px !important;
+    }
+
+    .fs-3 {
+        font-size: 20px !important;
+    }
+
+    .w-70 {
+        width: 100%;
     }
 }

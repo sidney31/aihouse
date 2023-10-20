@@ -9,10 +9,10 @@
              style="margin: 200px auto">
             {% for block in self.subHeader %}
                 {% if block.block_type == 'header' %}
-                    <p class="fw-bold appear-center" style="font-size: 65px; line-height: 1.1">
+                    <p class="fw-bold appear-center fs-1">
                         {{ block.value.title }}
                     </p>
-                    <p class="fw-light appear-center">
+                    <p class="fw-light appear-center fs-6">
                         {{ block.value.subtitle }}
                     </p>
                 {% endif %}
@@ -25,9 +25,9 @@
         </div>
     </div>
 
-    <div class="container-lg" style="margin: 140px auto">
-        <div class="row">
-            <div class="col mx-auto p-0">
+    <div class="container-lg overflow-visible" style="margin: 140px auto">
+        <div class="row overflow-visible">
+            <div class="col mx-auto p-0 overflow-visible">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'left_block' %}
                         <div class="row m-0 appear-right">
@@ -36,7 +36,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="benefit-image col appear-center mx-auto p-0">
+            <div class="benefit-image col appear-center mx-auto p-0 overflow-visible">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'image' %}
                         <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -45,7 +45,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="col mx-auto p-0">
+            <div class="col mx-auto p-0 overflow-visible">
                 {% for block in self.functional_description %}
                     {% if block.block_type == 'right_block' %}
                         <div class="row m-0 appear-left">
@@ -57,22 +57,23 @@
         </div>
     </div>
 
-    <div class="flex-column d-flex align-items-center" style="height: 920px; background-color: #f2f2f2">
-        <div class="container-md" style="margin-top: 120px">
-            <div class="mx-auto text-center" style="width: 900px; margin: 0 40px;">
+    <div class="flex-column d-flex align-items-center py-5" style="background-color: #f2f2f2">
+        <div class="container" style="max-width: 900px;">
+            <div class="mx-auto text-center" style="margin: 0 40px;">
                 {% for block in self.card_carousel %}
                     {% if block.block_type == "header" %}
-                        <p style="line-height: 1.2; font-size: 45px;">
+                        <p class="fs-2" style="line-height: 1.2;">
                             {{ block.value.title }}
                         </p>
-                        <p class="fs-5" style="margin-top: 20px; padding: 0 150px">
+                        <p class="fs-4 mx-auto w-70" style="margin: 20px 0">
                             {{ block.value.subtitle }}
                         </p>
                     {% endif %}
                 {% endfor %}
             </div>
 
-            <div id="carousel" class="carousel slide">
+            <div id="carousel" class="carousel slide pointer-event" data-bs-interval="10000000" data-bs-ride="carousel"
+                 data-bs-touch="true">
                 <div class="carousel-indicators"></div>
                 <div class="carousel-inner card-carousel">
                     {% for block in self.card_carousel %}
@@ -140,35 +141,40 @@
     </div>
     <div class="info container-lg">
         <div class="row">
-            <div class="col-sm-4" style="height: 100px; font-size: 28px">
+            <div class="col-sm-4 fs-3">
                 <a>Контакты</a>
             </div>
-            <div class="col-sm-2">
-                <a>Офис и учебный центр</a>
-            </div>
-            <dl class="col">
-                <div class="vertical-line">
-                    <dd>
-                        <i class="fa-solid fa-location-dot"></i>
-                        Адрес:
-                    </dd>
-                    <dd>105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>
-                    <dd>
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                        Контактный телефон:
-                    </dd>
-                    <dd>
-                        <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>
-                    </dd>
-                    <dd>
-                        <i class="fa-regular fa-envelope"></i>
-                        Электронная почта:
-                    </dd>
-                    <dd>
-                        <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>
-                    </dd>
+
+            <div class="col-sm-8">
+                <div class="col-md fs-4">
+                    <a>Офис и учебный центр</a>
                 </div>
-            </dl>
+
+                <dl class="col-md">
+                    <div class="vertical-line">
+                        <dd>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Адрес:
+                        </dd>
+                        <dd>105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>
+                        <dd>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            Контактный телефон:
+                        </dd>
+                        <dd>
+                            <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>
+                        </dd>
+                        <dd>
+                            <i class="fa-regular fa-envelope"></i>
+                            Электронная почта:
+                        </dd>
+                        <dd>
+                            <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+
         </div>
     </div>
     <div class="container-fluid parallax" style="background-image: url('./static/img/dark-interior.jpg');">

@@ -1,25 +1,28 @@
 {% load wagtailimages_tags %}
 
 <div class="carousel-item">
-    <div class="slider-cards mx-auto card mb-3" style="margin-top: 70px; width: max-content">
-        <div class="row g-0" style="width: 900px; height: 350px">
-            <div class="col">
+    <div class="slider-cards mx-auto card" style="">
+        <div class="row g-0">
+            <div class="col-sm">
                 {% image self.image max-450x350 class="w-100 h-100" %}
             </div>
-            <div class="col d-flex align-items-center">
-                <div class="card-body mx-3" style="padding: 40px">
-                    <p class="card-title" style="font-size: 24px">
-                        {{ self.title }}
-                    </p>
-                    <p class="card-text">
-                        {{ self.description }}
-                    </p>
-                    <p class="get-more-button">
-                        {{ self.hint }}
-                        <i class="fa-solid fa-right-long"></i>
-                    </p>
-                </div>
+            <div class="col-sm d-flex align-items-center"">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card-body" >
+                        <p class="fs-3 card-title">
+                            {{ self.title }}
+                        </p>
+                        <p class="card-text fs-5">
+                            {{ self.description }}
+                        </p>
+                        <p class="bth-hint fs-5">
+                            {{ self.hint }}
+                            <i class="fa-solid fa-right-long"></i>
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </div>
+
