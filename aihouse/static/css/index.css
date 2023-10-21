@@ -1,6 +1,7 @@
 body {
     font-family: Montserrat;
     margin: 20px;
+    font-size: 15px;
 }
 
 body * {
@@ -252,21 +253,27 @@ footer .container-fluid .row {
 .info > .row {
     margin-bottom: 70px;
 
-    > :first-child > a:before {
-        position: relative;
-        display: inline-block;
-        height: 28px;
-        width: 3px;
-        top: -3px;
-        margin-right: 18px;
-        vertical-align: middle;
-        background-color: #ff9320;
-        content: "";
+    > :first-child {
+        padding-bottom: 30px;
+
+        > a:before {
+            position: relative;
+            display: inline-block;
+            height: 28px;
+            width: 3px;
+            top: -3px;
+            margin-right: 18px;
+            vertical-align: middle;
+            background-color: #ff9320;
+            content: "";
+        }
     }
 }
 
 .vertical-line {
+    padding-top: 15px;
     position: relative;
+    padding-left: 40px;
 
     > dd:nth-child(odd) {
         margin-bottom: 20px;
@@ -461,6 +468,10 @@ muted {
     .fs-1 {
         font-size: 55px !important;
     }
+
+    footer .d-flex{
+        margin: 0!important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -505,9 +516,13 @@ muted {
     footer {
         overflow-x: clip;
     }
+
+    .info .vertical-line:before {
+        display: none;
+    }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 755px) {
     .bth-hint {
         visibility: visible;
         pos
@@ -518,9 +533,6 @@ muted {
         margin: 0 !important;
         height: 170px;
     }
-}
-
-@media (max-width: 425px) {
 
     .benefit-image img {
         max-width: 320px;
@@ -537,5 +549,30 @@ muted {
 
     .w-70 {
         width: 100%;
+    }
+}
+
+@media (max-width: 456px) {
+    .benefit-image img {
+        max-width: 320px;
+        width: auto;
+    }
+
+    .fs-2 {
+        font-size: 36px !important;
+    }
+
+    .fs-3 {
+        font-size: 20px !important;
+    }
+
+    .w-70 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    #carousel .card-body{
+        height: 200px;
     }
 }
