@@ -18,17 +18,15 @@ cards[0].classList.add("active")
 
 var carouselIndicators = document.querySelector("#carousel > .carousel-indicators")
 cards.forEach((el, i) => {
-    carouselIndicators.innerHTML +=
-        `<button type="button" data-bs-target="#carousel" data-bs-slide-to="${i}"
-        aria-current="true" aria-label="Slide ${i+1}"></button>`
-})
-
-carouselIndicators.childNodes.forEach((v, k) => {
-    if (k === 1)
-        v.classList.add("active")
-
-    v.ariaLabel = "Slide "+k+1
-    v.databsslide = k+1
+    if (i === 0) {
+        carouselIndicators.innerHTML +=
+            `<button type="button" data-bs-target="#carousel" data-bs-slide-to="${i}" 
+        class="active" aria-label="Slide ${Number(i) + 1}" aria-current="true"></button>`
+    } else {
+        carouselIndicators.innerHTML +=
+            `<button type="button" data-bs-target="#carousel" data-bs-slide-to="${i}"
+        class aria-label="Slide ${Number(i) + 1}"></button>`
+    }
 })
 
 
