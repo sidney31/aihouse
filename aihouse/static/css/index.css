@@ -356,6 +356,7 @@ footer dl {
 
     > dd {
         color: #a3a4a8;
+        font-weight: bold;
 
         > a {
             text-decoration: none;
@@ -444,6 +445,17 @@ muted {
     transition-duration: 300ms;
 }
 
+.pl-1{
+    padding-left: 16px;
+}
+
+
+@media (min-width: 1200px) {
+    footer .container-xl{
+        width: 1080px;
+    }
+}
+
 @media (max-width: 1440px) {
     .benefit-image img {
         height: auto;
@@ -467,10 +479,6 @@ muted {
 
     .fs-1 {
         font-size: 55px !important;
-    }
-
-    footer .d-flex{
-        margin: 0!important;
     }
 }
 
