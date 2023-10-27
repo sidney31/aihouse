@@ -8,6 +8,10 @@ body * {
     overflow: hidden;
 }
 
+header * {
+    overflow: visible;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
@@ -63,22 +67,6 @@ form.nav {
     font-weight: 400;
 }
 
-.dropdown .dropdown-menu {
-    display: block;
-    opacity: 0;
-
-    -moz-transition: all 100ms ease-in-out;
-    -webkit-transition: all 100ms ease-in-out;
-    -o-transition: all 100ms ease-in-out;
-    -ms-transition: all 100ms ease-in-out;
-    transition: all 100ms ease-in-out;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-}
-
 .navbar {
     height: 100px;
     width: 100vw;
@@ -89,12 +77,16 @@ form.nav {
     margin-left: 40px;
 }
 
+.vertical-align {
+    padding: 170px 0;
+}
+
 .fa {
     transition-duration: 0.4s;
 }
 
 .fa-cont {
-    width: 180px;
+    width: 170px;
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -445,21 +437,30 @@ muted {
     transition-duration: 300ms;
 }
 
-.pl-1{
+.pl-1 {
     padding-left: 16px;
 }
 
-
-@media (min-width: 1200px) {
-    footer .container-xl{
-        width: 1080px;
-    }
+video {
+    object-fit: cover;
+    overflow: clip;
+    z-index: 0;
+    height: inherit;
+    width: inherit;
 }
+
 
 @media (max-width: 1440px) {
     .benefit-image img {
         height: auto;
         max-width: 100%;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    footer .container-xl {
+        width: 1080px;
     }
 }
 
@@ -580,7 +581,7 @@ muted {
 }
 
 @media (max-width: 320px) {
-    #carousel .card-body{
+    #carousel .card-body {
         height: 200px;
     }
 }
