@@ -342,6 +342,7 @@ footer .container-fluid .row {
     object-fit: contain;
     z-index: -1;
     position: absolute;
+    scale: 110%;
 }
 
 .parallax > a,
@@ -412,8 +413,12 @@ muted {
     color: #a3a4a8;
 }
 
+header .logotype {
+    margin-left: 50px;
+}
+
 .logotype {
-    height: 100px;
+    height: 80px;
     width: 150px;
     display: flex;
     align-items: center;
@@ -548,6 +553,10 @@ video {
 
     form[class~="nav"] {
         position: relative !important;
+    }
+
+    header .logotype {
+        margin-left: 0;
     }
 }
 
