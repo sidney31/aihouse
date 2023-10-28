@@ -12,7 +12,6 @@ window.addEventListener('scroll', () => {
 });
 
 //cards carousel
-
 var cards = document.querySelectorAll(".card-carousel > .carousel-item")
 cards[0].classList.add("active")
 
@@ -33,7 +32,7 @@ cards.forEach((el, i) => {
 //gallery carousel
 var items = document.querySelectorAll(".gallery-carousel-inner .carousel-item");
 items.forEach((e) => {
-    const slide = 2;
+    const slide = 7;
     let next = e.nextElementSibling;
     for (let i = 0; i < slide; i++) {
         if (!next) {
@@ -106,3 +105,11 @@ function animateItem(item) {
         );
     }
 }
+
+//parallax
+var backgroundImage = document.querySelector('.parallax > img')
+window.addEventListener('scroll', () => {
+    var yPos = -(window.scrollY*7/100);
+    backgroundImage.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
+})
+
