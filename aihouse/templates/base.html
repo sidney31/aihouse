@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +15,8 @@
         {% endblock %}
     </title>
     <meta name="description" content="{{ self.search_description }}">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 </head>
 <body>
@@ -22,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top ">
         <div class="container-fluid justify-content-space-between">
             <a href="#" class="logotype">
-                <img src="./static/img/AiHouse-light.png">
+                <img src="{% static '/img/AiHouse-light.png' %}">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -93,7 +95,7 @@
         <div class="row mx-auto" style="padding: 140px 0;">
             <div class="col-lg-4 mx-0">
                 <a href="#" class="logotype">
-                    <img src="./static/img/AiHouse-dark.png">
+                    <img src="{% static '/img/AiHouse-dark.png' %}">
                 </a>
             </div>
             <div class="col-lg-8">
@@ -148,7 +150,7 @@
     </div>
 </footer>
 <script type="text/javascript" src="../static/js/index.js"></script>
-<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 <script src="https://kit.fontawesome.com/d22fe735f3.js" crossorigin="anonymous"></script>
 </body>
 </html>

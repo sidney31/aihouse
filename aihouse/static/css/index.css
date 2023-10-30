@@ -68,7 +68,7 @@ header * {
 }
 
 .dropdown-item {
-    text-wrap: wrap;
+    text-wrap: none;
     padding: 13px 25px;
     margin: 5px 0;
     font-weight: 300;
@@ -614,7 +614,6 @@ video {
 @media (max-width: 755px) {
     .bth-hint {
         visibility: visible;
-        pos
     }
 
     #carousel .card-body {

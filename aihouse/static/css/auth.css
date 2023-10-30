@@ -1,0 +1,22 @@
+body {
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.bottom-center {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.text-muted {
+    color: rgba(255, 255, 255, .4)!important;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
