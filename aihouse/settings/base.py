@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -171,3 +173,5 @@ ALL_RICHTEXT_FEATURES = (
     RICHTEXT_ENTITIES +
     RICHTEXT_MISC
 )
+
+AUTH_USER_MODEL = "users.User"

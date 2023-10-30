@@ -7,14 +7,16 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+from users import urls as users_urls
+
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
+    path("users/", include(users_urls, namespace='users')),
 ]
-
 
 if settings.DEBUG:
     from django.conf.urls.static import static
