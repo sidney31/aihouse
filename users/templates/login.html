@@ -1,12 +1,18 @@
 {% extends "authBase.html" %}
 
 {% block forms %}
-<label class="text-muted appear-center mx-auto" style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.7)!important;">
+<label class="text-muted mx-auto" style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.7)!important;">
     Используйте email или телефон
 </label>
 <form action="">
-    <input type="text" placeholder="+79999999999" id="number" name="number"/>
-    <input type="password" placeholder="Пароль" id="password" name="password"/>
+    <div class="login-field">
+        <input type="text" placeholder="+79999999999" id="number" name="number"/>
+        <i class="fa-regular fa-user fa-icon"></i>
+    </div>
+    <div class="password-field">
+        <input type="password" placeholder="Пароль" id="password" name="password"/>
+        <i class="fa-solid fa-lock fa-icon"></i>
+    </div>
     <button type="button" class="btn btn-primary"/>Войти</button>
 </form>
 <div class="d-flex justify-content-center bottom-buttons">
