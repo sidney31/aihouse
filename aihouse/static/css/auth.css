@@ -3,6 +3,10 @@ body {
     overflow: hidden;
 }
 
+[class^="container"]{
+    padding: 10!important;
+}
+
 .bottom-center {
     position: absolute;
     bottom: 0;
@@ -16,7 +20,69 @@ body {
     color: rgba(255, 255, 255, .4)!important;
 }
 
+
 a {
     text-decoration: none;
     color: white;
+}
+
+
+input, button{
+    background-color: #7a7a7a;
+    border: rgba(255, 255, 255, 0.24) 1px solid;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    height: 38px;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    width: 100%;
+    padding: 0 10px;
+}
+
+input:focus{
+    outline:none;
+    border: 1px solid white;
+    background-color: #333333;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.btn-primary{
+    background-color: #ffffff00;
+    color: #ff9320;
+    width: 100%;
+}
+
+
+.btn-primary:hover{
+    background-color: #ff9320;
+    color: #ffffff;
+}
+
+.bottom-buttons {
+    font-size: 15px;
+    margin-top: 40px;
+    color: white!important;
+}
+
+.logotype{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.show-in-laptop{
+    display: block!important;
+}
+
+@media (max-width: 980px) {
+    .show-in-laptop{
+        display: none!important;
+    }
 }

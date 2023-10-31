@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 </head>
 <body>
-<div class="container-xxl justify-content-center mx-auto align-content-center"
-     style="height: auto; width: 300px; margin-top: 90px">
+<div class="container-sm d-flex justify-content-center mx-auto flex-column center-block"
+     style="width: 300px; height: 100vh;">
     <a href="#" class="logotype mx-auto">
         <img src="{% static '/img/AiHouse-dark.png' %}">
     </a>
@@ -31,14 +31,14 @@
 
     {% endblock %}
 
-    <div class="text-muted bottom-center">
+    <div class="bottom-center text-muted show-in-laptop">
         © 2023 -
-        <a href=""> Сделано в ASAI SOFT | </a>
+        <a class="mx-auto" href=""> Сделано в ASAI SOFT | </a>
         Все права защищены
     </div>
 </div>
 {% block content %} {% endblock %}
-{#<script type="text/javascript" src="{% static '/js/index.js' %}"></script>#}
+<script type="text/javascript" src="{% static '/js/index.js' %}"></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="https://kit.fontawesome.com/d22fe735f3.js" crossorigin="anonymous"></script>
 </body>
