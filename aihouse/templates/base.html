@@ -1,4 +1,5 @@
 {% load static %}
+{% load wagtailroutablepage_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,19 +78,23 @@
                         </li>
                     </ul>
                 </div>
-                <form class="nav me-5">
+                <div class="nav me-5">
                     <li class="nav-item">
-                        <a class="nav-link link-dark fw-light" href="#">Вход</a>
+                        <a class="nav-link link-dark fw-light" href="{% url 'users:login' %}">Вход</a>
                     </li>
-                    <button class="btn btn-primary px-4" type="button">Регистрация</button>
-                </form>
+                    <form action="{% url 'users:registration' %}">
+                        <button class="btn btn-primary px-4" type="submit">Регистрация</button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
 </header>
+
 <section>
     {% block content %}{% endblock %}
 </section>
+
 <footer>
     <div class="container-xl">
         <div class="row mx-auto" style="padding: 140px 0;">

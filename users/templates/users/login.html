@@ -1,22 +1,25 @@
 {% extends "authBase.html" %}
+{% load wagtailroutablepage_tags %}
 
 {% block forms %}
 <label class="text-muted mx-auto" style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.7)!important;">
     Используйте email или телефон
 </label>
-<form action="">
+
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
     <div class="login-field">
-        <input type="text" placeholder="+79999999999" id="number" name="number"/>
+        {{ form.username }}
         <i class="fa-regular fa-user fa-icon"></i>
     </div>
     <div class="password-field">
-        <input type="password" placeholder="Пароль" id="password" name="password"/>
+        {{ form.password }}
         <i class="fa-solid fa-lock fa-icon"></i>
     </div>
-    <button type="button" class="btn btn-primary"/>Войти</button>
+    <button type="submit" class="btn btn-primary"/>Войти</button>
 </form>
 <div class="d-flex justify-content-center bottom-buttons">
-    <a href="">Забыли пароль?</a>
-    <a href="">Регистрация</a>
+    <a href=>Забыли пароль?</a>
+    <a href="{% url 'users:registration' %}">Регистрация</a>
 </div>
 {% endblock %}

@@ -80,7 +80,7 @@ header * {
     color: #ff9320;
 }
 
-form.nav {
+div.nav {
     position: absolute;
     right: 0;
 }

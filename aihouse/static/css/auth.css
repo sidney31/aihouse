@@ -44,7 +44,7 @@ input, button{
     margin: 5px 0;
     width: 100%;
     padding-left: 10px;
-    padding-right: 35px;
+    padding-right: 30px;
 }
 
 input:focus{
@@ -96,6 +96,7 @@ input:focus{
 }
 
 .fa-icon{
+    width: 17px;
     color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
     position: absolute;
