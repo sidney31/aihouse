@@ -59,6 +59,12 @@ header * {
 }
 
 
+=======
+    background-color: #ffffff !important;
+    border: 1px solid #ff9320 !important;
+    color: #ff9320 !important;
+}
+
 .dropdown-menu {
     border: none;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
@@ -485,6 +491,12 @@ video {
 
 .invisible-on-laptop {
     display: none;
+}
+
+@media (min-width: 1200px) {
+    footer .container-xl {
+        width: 1080px;
+    }
 }
 
 @media (max-width: 1440px) {
