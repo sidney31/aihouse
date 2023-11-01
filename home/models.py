@@ -3,13 +3,14 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin
 
 from .blocks import TitleButtonBlock, FunctionalDescBlock, Column, CardCarouselBlock, TitleAndSubtitle
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 
 
-class HomePage(Page):
+class HomePage(RoutablePageMixin, Page):
     subHeader = StreamField([
         ("header", TitleAndSubtitle(
             label='Заголовок'
@@ -68,8 +69,14 @@ class HomePage(Page):
         use_json_field=True)
 
     contacts = StreamField([
-
+        ("column", blocks.RichTextBlock(
+            label='Столбец'
+        )),
     ],
+        block_counts={
+            'column': {'mix_num': 3, 'max_num': 3},
+        },
+
         null=False,
         blank=False,
         default='',

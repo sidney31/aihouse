@@ -25,8 +25,11 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     "home",
     "search",
+    "users",
+    
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
+    "wagtail.contrib.routable_page",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -137,7 +140,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.2/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "/aihouse/static")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -170,3 +173,5 @@ ALL_RICHTEXT_FEATURES = (
     RICHTEXT_ENTITIES +
     RICHTEXT_MISC
 )
+
+AUTH_USER_MODEL = "users.User"
