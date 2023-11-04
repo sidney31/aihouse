@@ -1,6 +1,9 @@
-from django import forms
 from users.models import User
+
+from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import get_user_model
+
 
 
 class UserLoginForm(AuthenticationForm):
@@ -29,5 +32,5 @@ class UserRegistrationForm(UserCreationForm):
         'placeholder': 'Повторите ввод пароля',
     }))
 class Meta:
-    model = User
+    model = get_user_model()
     fields = ('number', 'email', 'password1', 'password2')
