@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
+from django.contrib.auth import authenticate, login
 
 from .forms import UserRegistrationForm, UserAuthenticationForm
 
@@ -22,6 +23,7 @@ class LoginView(FormView):
     form_class = UserAuthenticationForm
     template_name = 'registration/login.html'
     success_url = reverse_lazy("users:profile")
+
     def form_valid(self, form):
-        form.login()
+        login(self.request)
         return super().form_valid(form)
