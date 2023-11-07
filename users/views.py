@@ -1,33 +1,21 @@
-from django.shortcuts import render, HttpResponseRedirect
-from users.forms import UserLoginForm, UserRegistrationForm
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
 
-from django.contrib import auth
-
-def registration(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-    else:
-        form = UserRegistrationForm()
-
-    context = {'form': form}
-    return render(request, 'users/registration.html', context)
+from .forms import UserRegistrationForm
 
 
-def login(request):
-    if request.method == 'POST':
-        form = UserLoginForm(data=request.POST)
-        if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = auth.authenticate(username=username, password=password)
-            if user:
-                auth.login(request, user)
-                return HttpResponseRedirect('/')
-    else:
-        form = UserLoginForm()
-    context = {'form': form}
+@login_required
+def profile_view(request):
+    return render(request, 'users/profile.html')
 
-    return render(request, 'users/login.html', context)
+
+class RegistrationView(FormView):
+    form_class = UserRegistrationForm
+    template_name = 'registration/registration.html'
+    success_url = reverse_lazy("users:profile")
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

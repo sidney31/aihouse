@@ -1,10 +1,10 @@
 {% extends "authBase.html" %}
 
 {% block forms %}
-<form action="{% url 'users:registration' %}" method="POST">
+<form method="POST">
     {% csrf_token %}
     <div class="number-field">
-        {{ form.number }}
+        {{ form.username }}
         <i class="fa-solid fa-phone fa-icon"></i>
     </div>
     <div class="email-field">
@@ -19,10 +19,13 @@
         {{ form.password2 }}
         <i class="fa-solid fa-lock fa-icon"></i>
     </div>
-    <button type="submit" class="btn btn-primary"/>Войти</button>
+    
+    {{form.errors}}
+
+    <button type="submit" class="btn btn-primary"/>Зарегистрироваться</button>
 </form>
 <div class="d-flex justify-content-center bottom-buttons">
-    <a href="{% url 'users:login' %}">Вход</a>
+    <a href="{% url 'login' %}">Вход</a>
     <a href="">Тарифы</a>
 </div>
 {% endblock %}

@@ -1,22 +1,11 @@
-from django import forms
 from users.models import User
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-
-class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': '+79999999999',
-    }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': 'Пароль',
-    }))
-    class Meta:
-        model = User
-        fields = ('username', 'password')
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
 
 class UserRegistrationForm(UserCreationForm):
-    number = forms.CharField(widget=forms.TextInput(attrs={
+    username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': '+7(___)___-__-__',
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
@@ -28,6 +17,7 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Повторите ввод пароля',
     }))
-class Meta:
-    model = User
-    fields = ('number', 'email', 'password1', 'password2')
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
