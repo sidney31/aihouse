@@ -111,6 +111,15 @@ a:hover{
     color: rgba(255, 255, 255, 0.7);;
 }
 
+.errors{
+    background-color: white;
+    color: red;
+    text-align: center;
+}
+.errors > * {
+    padding: 30px;
+}
+
 @media (max-width: 980px) {
     .show-in-laptop{
         display: none!important;

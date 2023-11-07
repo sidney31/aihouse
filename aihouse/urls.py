@@ -11,7 +11,6 @@ from users import urls as users_urls
 urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("users/", include(users_urls)),
-    path("accounts/", include(djangoauth_urls)),
 ]
 
 if settings.DEBUG:
