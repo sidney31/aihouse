@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    account
+    <div class="container">
+        {{ user.username }}
+        <button class="btn-success" onclick="location.href='{% url 'logout' %}?next=/users/profile'">logout</button>
+    </div>
 {% endblock %}

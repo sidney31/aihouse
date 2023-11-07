@@ -6,7 +6,7 @@
     Используйте email или телефон
 </label>
 
-<form action="{% url 'users:login' %}" method="POST">
+<form method="POST">
     {% csrf_token %}
     <div class="login-field">
         {{ form.username }}
@@ -22,4 +22,6 @@
     <a href=>Забыли пароль?</a>
     <a href="{% url 'users:registration' %}">Регистрация</a>
 </div>
+
+    {{ form.errors }}
 {% endblock %}
