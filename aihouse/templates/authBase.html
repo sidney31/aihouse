@@ -27,6 +27,14 @@
         <img src="{% static '/img/AiHouse-dark.png' %}">
     </a>
 
+    <div class="errors">
+        {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+            <li>{{error}}</li>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
     {% block forms %}
 
     {% endblock %}
