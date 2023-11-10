@@ -3,6 +3,5 @@
 {% block content %}
     <div class="container">
         {{ user.username }}
-        <button class="btn-success" onclick="location.href='{% url 'users:logout' %}?next=/users/profile'">logout</button>
-    </div>
+        <button class="btn-success" onclick="location.href='{% url 'users:logout' %}?next=/users/profile'">logout</button>    </div>
 {% endblock %}

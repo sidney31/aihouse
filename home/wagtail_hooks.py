@@ -1,6 +1,8 @@
 from wagtail import hooks
-from .draftail_extensions import *
+from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
 
+from .draftail_extensions import *
+from .models import Button
 
 @hooks.register("register_rich_text_features")
 def register_col_sm_styling(features):
