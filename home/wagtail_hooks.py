@@ -1,6 +1,6 @@
 from wagtail import hooks
-from .draftail_extensions import *
 
+from .draftail_extensions import *
 
 @hooks.register("register_rich_text_features")
 def register_col_sm_styling(features):

@@ -178,3 +178,7 @@ ALL_RICHTEXT_FEATURES = (
 AUTH_USER_MODEL = "users.User"
 
 LOGIN_REDIRECT_URL = reverse_lazy('users:profile')
+
+WAGTAIL_ENABLE_UPDATE_CHECK = False
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
