@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms.utils import ErrorList
+from django.core.exceptions import ValidationError
 
 from wagtail.models import Page
 from wagtail.fields import StreamField
@@ -115,7 +117,7 @@ class ButtonSnippet(BaseButtonSnippet):
     height = models.IntegerField()
     width = models.IntegerField()
     bodyText = models.TextField(null=True, blank=True)
-    url = models.URLField()
+    url = models.URLField(blank=True, null=True)
     page = models.ForeignKey('wagtailcore.Page', blank=True, null=True, on_delete=models.SET_NULL)
 
     panels = [
@@ -130,12 +132,18 @@ class ButtonSnippet(BaseButtonSnippet):
         )
     ]
 
-    def save(self, *args, **kwargs):
-        pass
-
     class Meta:
         verbose_name = 'Кнопка'
         verbose_name_plural = 'Кнопки'
+
+    def clean(self, *args, **kwargs):
+        url = self.url
+        page = self.page
+        if page and url:
+            message = "Кнопка может вести лишь на ОДИН ресурс"
+            raise ValidationError(message=message)
+
+        return super().clean()
 
 
 @register_snippet
