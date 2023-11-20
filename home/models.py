@@ -3,7 +3,7 @@ from django.forms.utils import ErrorList
 from django.core.exceptions import ValidationError
 
 from wagtail.models import Page
-from wagtail.fields import StreamField
+from wagtail.fields import StreamField, RichTextField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, PageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -148,7 +148,6 @@ class ButtonSnippet(BaseButtonSnippet):
 
 @register_snippet
 class TextLinkSnippet(BaseButtonSnippet):
-    bodyText = models.TextField(null=True, blank=True)
     url = models.URLField()
 
     panels = [
@@ -159,3 +158,7 @@ class TextLinkSnippet(BaseButtonSnippet):
     class Meta:
         verbose_name = 'Текст-ссылка'
         verbose_name_plural = 'Текст-ссылки'
+
+@register_snippet
+class CallModalWindow(BaseButtonSnippet):
+    modalWindow = RichTextField()
