@@ -24,7 +24,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
- 
+
             <div class="d-flex text-center align-items-center justify-content-center flex-row gap-5 z-1"
                  style="height:170px; background-color: #333333;">
                 {% for button in self.title_buttons %}
@@ -149,44 +149,27 @@
             </button>
         </div>
     </div>
+
     <div class="info container-lg">
         <div class="row">
             <div class="col-sm-4 fs-4">
-                <a>Контакты</a>
+                {{ self.contacts.0 }}
             </div>
 
             <div class="row col-sm-8">
                 <div class="col-lg-3 fs-4 px-3">
-                    <a>Офис и учебный центр</a>
+                    {{ self.contacts.1 }}
                 </div>
 
                 <dl class="col-md">
                     <div class="vertical-line">
-                        <dd>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Адрес:
-                        </dd>
-                        <dd>105203, город Москва, 12-Я Парковая ул, д. 5, помещ. 17</dd>
-                        <dd>
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                            Контактный телефон:
-                        </dd>
-                        <dd>
-                            <a href="tel:+7 495 128-78-03">+7 495 128-78-03</a>
-                        </dd>
-                        <dd>
-                            <i class="fa-regular fa-envelope"></i>
-                            Электронная почта:
-                        </dd>
-                        <dd>
-                            <a href="mailto:info@aihouserussia.ru">info@aihouserussia.ru</a>
-                        </dd>
+                        {{ self.contacts.2 }}
                     </div>
                 </dl>
             </div>
-
         </div>
     </div>
+
     <div class="container-fluid parallax">
         <img src="./static/img/dark-interior.jpg">
         <a>Свяжитесь с нами</a>
