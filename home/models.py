@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms.utils import ErrorList
 from django.core.exceptions import ValidationError
 
 from wagtail.models import Page
@@ -23,7 +22,11 @@ class HomePage(Page):
         ("button", SnippetChooserBlock("home.ButtonSnippet",
                                        icon="th-list",
                                        template="home/tags/button.html")
-         )
+         ),
+        ("textLink", SnippetChooserBlock("home.TextLinkSnippet",
+                                       icon="th-list",
+                                       template="home/tags/textLink.html")
+         ),
     ],
         block_counts={
             'header': {'min_num': 1, 'max_num': 1},
@@ -105,6 +108,10 @@ class HomePage(Page):
 class BaseButtonSnippet(models.Model):
     bodyText = models.TextField(null=True, blank=True)
 
+    panels = [
+        FieldPanel('bodyText'),
+    ]
+
     class Meta:
         abstract = True
 
@@ -112,18 +119,11 @@ class BaseButtonSnippet(models.Model):
         return self.bodyText
 
 
-@register_snippet
-class ButtonSnippet(BaseButtonSnippet):
-    height = models.IntegerField()
-    width = models.IntegerField()
-    bodyText = models.TextField(null=True, blank=True)
+class RedirectPageMixin(models.Model):
     url = models.URLField(blank=True, null=True)
     page = models.ForeignKey('wagtailcore.Page', blank=True, null=True, on_delete=models.SET_NULL)
 
     panels = [
-        FieldPanel('height'),
-        FieldPanel('width'),
-        FieldPanel('bodyText'),
         MultiFieldPanel([
             FieldPanel('url'),
             PageChooserPanel('page')
@@ -131,10 +131,6 @@ class ButtonSnippet(BaseButtonSnippet):
             heading='RedirectTo'
         )
     ]
-
-    class Meta:
-        verbose_name = 'Кнопка'
-        verbose_name_plural = 'Кнопки'
 
     def clean(self, *args, **kwargs):
         url = self.url
@@ -147,18 +143,29 @@ class ButtonSnippet(BaseButtonSnippet):
 
 
 @register_snippet
-class TextLinkSnippet(BaseButtonSnippet):
-    url = models.URLField()
+class ButtonSnippet(RedirectPageMixin, BaseButtonSnippet):
+    height = models.IntegerField()
+    width = models.IntegerField()
 
     panels = [
-        FieldPanel('bodyText'),
-        FieldPanel('url'),
-    ]
+        FieldPanel('height'),
+        FieldPanel('width'),
+    ] + RedirectPageMixin.panels + BaseButtonSnippet.panels
+
+    class Meta:
+        verbose_name = 'Кнопка'
+        verbose_name_plural = 'Кнопки'
+
+
+@register_snippet
+class TextLinkSnippet(RedirectPageMixin, BaseButtonSnippet):
+    panels = RedirectPageMixin.panels + BaseButtonSnippet.panels
 
     class Meta:
         verbose_name = 'Текст-ссылка'
         verbose_name_plural = 'Текст-ссылки'
 
-@register_snippet
-class CallModalWindow(BaseButtonSnippet):
-    modalWindow = RichTextField()
+
+# @register_snippet
+# class CallModalWindow(BaseButtonSnippet):
+#     pass
