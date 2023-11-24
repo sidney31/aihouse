@@ -59,7 +59,7 @@ header * {
 }
 
 
-=======
+.btn-success:focus {
     background-color: #ffffff !important;
     border: 1px solid #ff9320 !important;
     color: #ff9320 !important;
@@ -285,7 +285,7 @@ footer .container-fluid .row {
     > :first-child {
         padding-bottom: 30px;
 
-        > a:before {
+        > p:before {
             position: relative;
             display: inline-block;
             height: 28px;
@@ -304,21 +304,21 @@ footer .container-fluid .row {
     position: relative;
     padding-left: 40px;
 
-    > dd:nth-child(odd) {
+    > ul > li:nth-child(odd) {
         margin-bottom: 20px;
     }
 
-    > dd {
+    > ul > li {
         margin-bottom: 10px;
     }
 
-    > dd > a {
+    > ul > li:nth-child(2n+4) {
         text-decoration: none;
         color: #ff9320;
         transition: all 0.2s ease;
     }
 
-    > dd > a:hover {
+    > ul > li:nth-child(2n+4):hover {
         color: initial;
     }
 }
@@ -675,4 +675,4 @@ video {
     #carousel .card-body {
         height: 200px;
     }
-}
+} 
